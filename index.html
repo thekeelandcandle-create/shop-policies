@@ -249,16 +249,17 @@
     /* PRODUCTS */
     .products { background: var(--dark); }
     .product-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      max-width: 1300px;
+      max-width: 1200px;
       margin: 0 auto;
-      justify-content: center;
     }
-    .product-card {
-      width: 240px;
-      flex-shrink: 0;
+    @media (max-width: 860px) {
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .product-card {
       background: var(--dark-card);
@@ -621,6 +622,9 @@
           </div>
         </div>
       </div>
+
+      <div class="product-card" style="visibility:hidden;"></div>
+      <div class="product-card" style="visibility:hidden;"></div>
 
     <div style="text-align:center; margin-top: 60px;">
       <a href="https://www.etsy.com/shop/KeelAndCandle" target="_blank" class="btn-primary">View All Products on Etsy</a>
